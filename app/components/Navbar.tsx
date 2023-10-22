@@ -1,6 +1,8 @@
 "use client"
 import Image from "next/image"
 import Link from "next/link"
+import Cart from "./Cart"
+import { useCartStore } from "@/store/useCartStore"
 import { FiMenu } from "react-icons/fi"
 import { MdClose } from "react-icons/md"
 import logo from '@/public/moonlamplogo.png'
@@ -9,7 +11,7 @@ import { BsCart4, BsFillBagHeartFill } from "react-icons/bs"
 
 const Navbar = () => {
     const [openMobileMenu, setOpenMobileMenu] = useState(false)
-
+    const cartStore = useCartStore()
     const mobeleMenuHandler = () => {
         setOpenMobileMenu(!openMobileMenu)
     }
@@ -35,7 +37,7 @@ const Navbar = () => {
                     </li>
                 </ul>
                 <div className="flex gap-4 items-center text-dark ml-auto md:ml-0">
-                    <div>
+                    <div onClick={() => cartStore.toggleCart()}>
                         <BsCart4 size={20} />
                     </div>
                     <div>
@@ -47,6 +49,7 @@ const Navbar = () => {
                     {openMobileMenu ? <MdClose size={25} /> : <FiMenu size={25} />}
                 </div>
             </div>
+            {!cartStore.isOpen && <Cart />}
         </nav>
     )
 }
