@@ -1,19 +1,19 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-// import { CartType } from "@/types/cartTypes";
+import { CartType } from "@/types/cartTypes";
 
-// type CartState = {
-//     isOpen: boolean;
-//     cart: CartType[];
-//     toggleCart: () => void;
-//     clearCart: () => void;
-//     addToCart: (item: CartType) => void;
-//     removeProduct: (item: CartType) => void;
-//     paymentIntent: string;
-//     onCheckout: string;
-//     setPaymentIntent: (val: string) => void;
-//     setCheckout: (val: string) => void;
-// };
+type CartState = {
+    isOpen: boolean;
+    cart: CartType[];
+    toggleCart: () => void;
+    clearCart: () => void;
+    addToCart: (item: CartType) => void;
+    removeProduct: (item: CartType) => void;
+    paymentIntent: string;
+    onCheckout: string;
+    setPaymentIntent: (val: string) => void;
+    setCheckout: (val: string) => void;
+};
 
 export const useCartStore = create<CartState>()(
     persist(

@@ -18,9 +18,9 @@ const Cart = () => {
                             <Image src={product.image} width={150} height={150} alt="moonlamp" />
                             <h1 className="font-medium">{product.name}</h1>
                             <div className="flex gap-2 justify-center item-center bg-black/10 px-2 rounded-sm">
-                                <DecrementButton />
+                                <DecrementButton product={product} />
                                 <h2>{product.quantity}</h2>
-                                <IncrementButton />
+                                <IncrementButton product={product} />
                             </div>
                         </div>
                     ))}
