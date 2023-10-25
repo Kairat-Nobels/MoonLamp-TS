@@ -1,23 +1,28 @@
-import { useCartStore } from "@/store/useCartStore"
-import { RiAddFill } from "react-icons/ri"
-import { ProductType } from "@/types/productTypes"
+import { useCartStore } from "@/store/useCartStore";
+import { ProductType } from "@/types/productType";
+import { RiAddFill } from "react-icons/ri";
 
-interface IncrementPropTypes {
-    product: ProductType
-}
-const IncrementButton = ({ product }: IncrementPropTypes) => {
-    const cartStore = useCartStore()
-    return (
-        <button onClick={() => cartStore.addToCart({
-            id: product.id,
-            unit_amount: product.unit_amount,
-            quantity: product.quantity,
-            name: product.name,
-            image: product.image,
-        })}>
-            <RiAddFill />
-        </button>
-    )
+interface IncrementPropType {
+  product: ProductType;
 }
 
-export default IncrementButton
+const IncrementButton = ({ product }: IncrementPropType) => {
+  const cartStore = useCartStore();
+  return (
+    <button
+      onClick={() =>
+        cartStore.addToCart({
+          id: product.id,
+          unit_amount: product.unit_amount,
+          quantity: product.quantity,
+          name: product.name,
+          image: product.image,
+        })
+      }
+    >
+      <RiAddFill />
+    </button>
+  );
+};
+
+export default IncrementButton;

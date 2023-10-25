@@ -1,14 +1,21 @@
-"use client"
-import { useCartStore } from "@/store/useCartStore"
-import { ProductType } from "@/types/productTypes"
+"use client";
 
-const AddToCartButton = ({ name, image, unit_amount, id, quantity }: ProductType) => {
-    const cartStore = useCartStore()
-    return (
-        <>
-            <button onClick={() => cartStore.addToCart({ name, image, unit_amount, id, quantity })} className="my-12 text-white py-2 px-6 font-medium rounded-md bg-primary">Add to cart</button>
-        </>
-    )
-}
+import { useCartStore } from "@/store/useCartStore";
+import { ProductType } from "@/types/productType";
 
-export default AddToCartButton
+const AddToCartButton = ({ name, id, image, unit_amount, quantity }: ProductType) => {
+  const cartStore = useCartStore();
+
+  return (
+    <>
+      <button
+        onClick={() => cartStore.addToCart({ id, image, unit_amount, quantity, name })}
+        className="my-12 text-white py-2 px-6 font-medium rounded-md bg-[#778da9]"
+      >
+        Add to cart
+      </button>
+    </>
+  );
+};
+
+export default AddToCartButton;
